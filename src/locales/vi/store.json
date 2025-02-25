@@ -1,0 +1,23 @@
+{
+  "management": "Quản lý cửa hàng",
+  "name": "Tên cửa hàng",
+  "phone": "Số điện thoại",
+  "status": "Trạng thái",
+  "active": "Hoạt động",
+  "inactive": "Ngừng hoạt động",
+  "createdAt": "Ngày tạo",
+  "updatedAt": "Ngày cập nhật",
+  "actions" : "Chức năng",
+  "button" : {
+    "add": "Tạo mới",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "close": "Đóng",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "search" : "Tìm kiếm"
+  },
+  "search": {
+    "placeholder": "Tìm theo tên"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "management": "Store Management",
+  "name": "Store Name",
+  "phone": "Phone Number",
+  "status": "Status",
+  "active": "Active",
+  "inactive": "Inactive",
+  "createdAt": "Created At",
+  "updatedAt": "Updated At",
+  "actions" : "Actions",
+  "button" : {
+    "add": "Add Store",
+    "edit": "Edit Store",
+    "delete": "Delete Store",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "search" : "Search"
+  },
+  "search": {
+    "placeholder": "Search by name"
+  }
+}
