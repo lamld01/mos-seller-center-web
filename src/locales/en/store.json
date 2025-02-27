@@ -1,5 +1,7 @@
 {
   "management": "Store Management",
+  "edit": "Edit",
+  "create": "Create",
   "name": "Store Name",
   "phone": "Phone Number",
   "status": "Status",
@@ -15,7 +17,8 @@
     "close": "Close",
     "save": "Save",
     "cancel": "Cancel",
-    "search" : "Search"
+    "search" : "Search",
+    "viewBranches": "View Branch"
   },
   "search": {
     "placeholder": "Search by name"

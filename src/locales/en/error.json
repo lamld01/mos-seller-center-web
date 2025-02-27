@@ -1,5 +1,4 @@
 {
   "404": "Page not found",
-  "500": "Server error",
-  "loadStores": "Failed to load store list!"
+  "500": "Server error"
 }

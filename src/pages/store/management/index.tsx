@@ -1,28 +1,36 @@
 import { useEffect, useState } from "react";
-import { Table, Card, message, Tag, Input, Space, Button } from "antd";
+import { Table, Card, message, Tag, Input, Space, Button, Tooltip, Row, Col, Form } from "antd";
 import type { ColumnsType, TablePaginationConfig } from "antd/es/table";
+import { useRouter } from "next/router";
 import withAuth from "@/hoc/withAuth";
 import { getPageStore, StoreResponse } from "@/features/store/services/storeService";
 import { useTranslations } from "next-intl";
-import ModalCreateUpdateStore from "@/components/modal/ModelCreateIUpdateStore";
+import ModalCreateUpdateStore from "@/components/modals/store/ModelCreateIUpdateStore";
+import ROUTES from "@/config/routes";
+import { EditOutlined, EyeOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
+import BasePage from "@/components/base/page";
 
 const StoreManagement = () => {
     const t = useTranslations("store");
+    const commonT = useTranslations("common");
+    const router = useRouter();
     const [stores, setStores] = useState<StoreResponse[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
-    const [searchText, setSearchText] = useState<string>("");
     const [pagination, setPagination] = useState<TablePaginationConfig>({ current: 1, pageSize: 10, total: 0 });
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [selectedStore, setSelectedStore] = useState<StoreResponse | null>(null);
 
+    const [form] = Form.useForm(); // Dùng Form.useForm để lấy đối tượng form
+
     useEffect(() => {
         fetchStores();
-    }, [pagination.current, searchText]);
+    }, [pagination.current]); // Thêm chỉ pagination vào dependencies, vì filter sẽ lấy từ form
 
     const fetchStores = async () => {
         setLoading(true);
+        const values = form.getFieldsValue(); // Lấy giá trị từ form
         try {
-            const response = await getPageStore(undefined, searchText, pagination.current, pagination.pageSize);
+            const response = await getPageStore(values.phoneNumber, values.name, pagination.current, pagination.pageSize);
             if (response) {
                 setStores(response.data);
                 setPagination((prev) => ({ ...prev, total: response.totalElements }));
@@ -40,13 +48,17 @@ const StoreManagement = () => {
         setIsModalVisible(true);
     };
 
-    const handleSearch = (value: string) => {
-        setSearchText(value);
-        setPagination((prev) => ({ ...prev, current: 1 }));
+    const handleSearch = () => {
+        setPagination((prev) => ({ ...prev, current: 1 })); // Đặt lại trang đầu khi tìm kiếm
+        fetchStores(); // Gọi lại fetchStores sau khi tìm kiếm
     };
 
     const handleTableChange = (pagination: TablePaginationConfig) => {
         setPagination(pagination);
+    };
+
+    const handleViewBranches = (storeId: number) => {
+        router.push(ROUTES.STORE_BRANCHES(storeId));
     };
 
     const columns: ColumnsType<StoreResponse> = [
@@ -64,43 +76,86 @@ const StoreManagement = () => {
             ),
         },
         {
-            title: t("createdAt"),
-            dataIndex: "createdAt",
-            key: "createdAt",
-            render: (date: string) => new Date(date).toLocaleDateString(),
-        },
-        {
-            title: t("updatedAt"),
-            dataIndex: "updatedAt",
-            key: "updatedAt",
-            render: (date: string) => new Date(date).toLocaleDateString(),
-        },
-        {
             title: t("actions"),
             key: "actions",
             render: (record: StoreResponse) => (
                 <Space>
-                    <a onClick={() => showModal(record)}>{t("button.edit")}</a>
+                    <Tooltip title={t("button.edit")}>
+                        <Button
+                            icon={<EditOutlined />}
+                            onClick={() => showModal(record)}
+                            type="text"
+                        />
+                    </Tooltip>
+                    <Tooltip title={t("button.viewBranches")}>
+                        <Button
+                            icon={<EyeOutlined />}
+                            onClick={() => handleViewBranches(record.id)}
+                            type="text"
+                        />
+                    </Tooltip>
                 </Space>
             ),
         },
     ];
 
     return (
-        <Card title={t("management")}>
-            <Space style={{ marginBottom: 16 }}>
-                <Input.Search
-                    placeholder={t("search.placeholder")}
-                    allowClear
-                    enterButton={t("button.search")}
-                    onSearch={handleSearch}
-                    style={{ width: 300 }}
+        <BasePage
+            breadcrumbConfig={[
+                { label: commonT("breadcrumb.home"), link: ROUTES.HOME },
+                { label: commonT("breadcrumb.storeManagement") },
+            ]}
+        >
+            <Card title={t("management")}>
+                <Row gutter={[16, 16]} align="middle" justify="space-between" style={{ marginBottom: 16 }}>
+                    {/* Form Search */}
+                    <Col xs={24} md={20}>
+                        <Form form={form} layout="vertical" onFinish={handleSearch}>
+                            <Row gutter={[16, 16]} align="bottom">
+                                <Col xs={24} sm={12} md={8}>
+                                    <Form.Item label={t("name")} name="name">
+                                        <Input placeholder={t("placeholder.name")} />
+                                    </Form.Item>
+                                </Col>
+                                <Col xs={24} sm={12} md={8}>
+                                    <Form.Item label={t("phone")} name="phoneNumber">
+                                        <Input placeholder={t("placeholder.phone")} />
+                                    </Form.Item>
+                                </Col>
+                                <Col xs={24} sm={12} md={8}>
+                                    <Form.Item>
+                                        <Button type="primary" htmlType="submit" icon={<SearchOutlined />}>
+                                            {commonT("button.search")}
+                                        </Button>
+                                    </Form.Item>
+                                </Col>
+                            </Row>
+                        </Form>
+                    </Col>
+
+                    {/* Button Add */}
+                    <Col xs={24} md={2} style={{ textAlign: "center" }}>
+                        <Button type="primary" onClick={() => showModal()} icon={<PlusOutlined />}>
+                            {commonT("button.add")}
+                        </Button>
+                    </Col>
+                </Row>
+                <Table
+                    columns={columns}
+                    dataSource={stores}
+                    loading={loading}
+                    rowKey="id"
+                    pagination={pagination}
+                    onChange={handleTableChange}
                 />
-                <Button type="primary" onClick={() => showModal()}>{t("button.add")}</Button>
-            </Space>
-            <Table columns={columns} dataSource={stores} loading={loading} rowKey="id" pagination={pagination} onChange={handleTableChange} />
-            <ModalCreateUpdateStore visible={isModalVisible} store={selectedStore} onClose={() => setIsModalVisible(false)} onSuccess={fetchStores} />
-        </Card>
+                <ModalCreateUpdateStore
+                    visible={isModalVisible}
+                    store={selectedStore}
+                    onClose={() => setIsModalVisible(false)}
+                    onSuccess={fetchStores}
+                />
+            </Card>
+        </BasePage>
     );
 };
 

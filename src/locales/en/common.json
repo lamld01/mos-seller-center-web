@@ -1,0 +1,13 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "storeManagement": "Store Management",
+    "branchManagement": "Branch Management"
+  },
+  "button": {
+    "search": "Search",
+    "add": "Add New",
+    "edit": "Edit",
+    "back": "Back"
+  }
+}

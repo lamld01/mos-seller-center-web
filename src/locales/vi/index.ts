@@ -1,11 +1,13 @@
 import auth from "./auth.json";
-import button from "./button.json";
+import common from "./common.json";
 import store from "./store.json";
 import error from "./error.json";
+import storeBranch from "./storeBranch.json";
 
 export default {
     auth,
-    button,
+    common,
     store,
     error,
+    storeBranch
 };

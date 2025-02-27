@@ -1,0 +1,13 @@
+{
+  "breadcrumb": {
+    "home": "Trang chủ",
+    "storeManagement": "Quản lý cửa hàng",
+    "branchManagement": "Quản lý chi nhánh"
+  },
+  "button": {
+    "search": "Tìm kiếm",
+    "add": "Thêm mới",
+    "edit": "Chỉnh sửa",
+    "back": "Trở lại"
+  }
+}

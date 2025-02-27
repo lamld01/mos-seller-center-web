@@ -1,0 +1,50 @@
+{
+  "branchManagement": "Quản lý chi nhánh",
+  "name": "Tên chi nhánh",
+  "phone": "Số điện thoại",
+  "address": "Địa chỉ",
+  "status": "Trạng thái",
+  "opened": "Đang mở",
+  "closed": "Đã đóng",
+  "actions": "Thao tác",
+
+  "button": {
+    "add": "Thêm chi nhánh",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "search": "Tìm kiếm",
+    "back": "Quay lại"
+  },
+
+  "addBranch": "Thêm chi nhánh",
+  "editBranch": "Chỉnh sửa chi nhánh",
+  "deleteBranch": "Xóa chi nhánh",
+  "save": "Lưu",
+  "cancel": "Hủy",
+  "confirmDelete": "Bạn có chắc chắn muốn xóa chi nhánh này không?",
+  "createSuccess": "Thêm chi nhánh thành công!",
+  "updateSuccess": "Cập nhật chi nhánh thành công!",
+  "deleteSuccess": "Xóa chi nhánh thành công!",
+
+  "placeholder": {
+    "name": "Nhập tên chi nhánh",
+    "phone": "Nhập số điện thoại",
+    "address": "Nhập địa chỉ"
+  },
+
+  "table": {
+    "noData": "Không có chi nhánh nào",
+    "totalBranches": "Tổng số chi nhánh: {count}"
+  },
+
+  "error": {
+    "loadBranches": "Không thể tải danh sách chi nhánh",
+    "saveBranch": "Lưu chi nhánh thất bại",
+    "deleteBranch": "Xóa chi nhánh thất bại",
+    "notFound": "Không tìm thấy chi nhánh",
+    "nameRequired": "Vui lòng nhập tên chi nhánh",
+    "phoneRequired": "Vui lòng nhập số điện thoại",
+    "addressRequired": "Vui lòng nhập địa chỉ",
+    "statusRequired": "Vui lòng chọn trạng thái"
+  }
+}

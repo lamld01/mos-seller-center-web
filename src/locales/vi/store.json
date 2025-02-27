@@ -1,6 +1,8 @@
 {
   "management": "Quản lý cửa hàng",
   "name": "Tên cửa hàng",
+  "edit": "Cập nhật",
+  "create": "Tạo mới",
   "phone": "Số điện thoại",
   "status": "Trạng thái",
   "active": "Hoạt động",
@@ -15,7 +17,8 @@
     "close": "Đóng",
     "save": "Lưu",
     "cancel": "Hủy",
-    "search" : "Tìm kiếm"
+    "search" : "Tìm kiếm",
+    "viewBranches": "Xem chi nhánh"
   },
   "search": {
     "placeholder": "Tìm theo tên"

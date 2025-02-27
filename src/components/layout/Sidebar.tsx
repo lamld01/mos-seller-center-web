@@ -1,44 +1,84 @@
-import { Layout, Menu } from "antd";
-import { AppstoreOutlined, ShopOutlined } from "@ant-design/icons";
-import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store";
+import {Layout, Menu, Drawer, Row, Col, Avatar, Typography} from "antd";
+import {AppstoreOutlined, ShopOutlined} from "@ant-design/icons";
+import {useRouter} from "next/router";
+import {useSelector} from "react-redux";
+import {RootState} from "@/store";
 import ROUTES from "@/config/routes";
+import useBreakpoint from "antd/es/grid/hooks/useBreakpoint";
+import {UserOutlined} from "@ant-design/icons";
+import Image from "next/image"; // Để sử dụng hình ảnh logo
 
-const { Sider } = Layout;
+const {Sider} = Layout;
+const {Title} = Typography;
 
-const Sidebar = () => {
+const Sidebar: React.FC<{
+    collapsed: boolean;
+    drawerVisible: boolean;
+    setDrawerVisible: (val: boolean) => void;
+}> = ({collapsed, drawerVisible, setDrawerVisible}) => {
+    const themeMode = useSelector((state: RootState) => state.theme.mode);
     const router = useRouter();
-    const theme = useSelector((state: RootState) => state.theme.mode);
+    const screens = useBreakpoint();
+    const isMobile = !screens.md;
 
-    return (
-        <Sider
-            collapsible
+    const menuItems = [
+        {
+            key: ROUTES.HOME,
+            icon: <AppstoreOutlined/>,
+            label: "Dashboard",
+            onClick: () => router.push(ROUTES.HOME),
+        },
+        {
+            key: ROUTES.STORE_MANAGEMENT,
+            icon: <ShopOutlined/>,
+            label: "Quản lý cửa hàng",
+            onClick: () => router.push(ROUTES.STORE_MANAGEMENT),
+        },
+    ];
+
+    const logoSection = (
+        <div style={{padding: "16px", display: "flex", alignItems: "center"}}>
+            <Image
+                src="/deployment.svg"
+                alt="Logo"
+                width={40}
+                height={40}
+                style={{borderRadius: "8px"}}
+            /><Title
+            hidden={collapsed}
+            level={4}
             style={{
-                minHeight: "100vh",
-                background: theme === "dark" ? "#001529" : "#fff", // Thay đổi màu nền
+                marginLeft: 8,
+                color: themeMode === "dark" ? "#fff" : "#000",
+                fontSize: 16,
+                whiteSpace: 'nowrap'
             }}
         >
+            {process.env.NEXT_PUBLIC_APP_NAME_TYPE}
+        </Title>
+
+        </div>
+    );
+
+    return isMobile ? (
+        <Drawer
+            title="Menu"
+            placement="left"
+            closable
+            onClose={() => setDrawerVisible(false)}
+            open={drawerVisible}
+            width={250}
+        >
+            <Menu theme={themeMode} selectedKeys={[router.pathname]} items={menuItems}/>
+        </Drawer>
+    ) : (
+        <Sider theme={themeMode} trigger={null} collapsible collapsed={collapsed}>
+            {logoSection}
             <Menu
-                theme={theme === "dark" ? "dark" : "light"} // Đổi theme của Menu
-                mode="inline"
+                theme={themeMode}
                 defaultSelectedKeys={[router.pathname]}
-            >
-                <Menu.Item
-                    key={ROUTES.HOME}
-                    icon={<AppstoreOutlined />}
-                    onClick={() => router.push(ROUTES.HOME)}
-                >
-                    Dashboard
-                </Menu.Item>
-                <Menu.Item
-                    key={ROUTES.STORE_MANAGEMENT}
-                    icon={<ShopOutlined />}
-                    onClick={() => router.push(ROUTES.STORE_MANAGEMENT)}
-                >
-                    Quản lý cửa hàng
-                </Menu.Item>
-            </Menu>
+                items={menuItems}
+            />
         </Sider>
     );
 };
