@@ -5,7 +5,7 @@ export interface StoreResponse {
     id: number;
     phoneNumber: string;
     name: string;
-    status: 'ACTIVE' | 'INACTIVE';
+    status: 'ACTIVATED' | 'INACTIVATED';
     createdAt: string;
     updatedAt: string;
 }

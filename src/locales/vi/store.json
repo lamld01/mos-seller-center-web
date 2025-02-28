@@ -9,18 +9,28 @@
   "inactive": "Ngừng hoạt động",
   "createdAt": "Ngày tạo",
   "updatedAt": "Ngày cập nhật",
-  "actions" : "Chức năng",
-  "button" : {
+  "actions": "Chức năng",
+  "address": "Địa chỉ",
+  "button": {
     "add": "Tạo mới",
     "edit": "Chỉnh sửa",
     "delete": "Xóa",
     "close": "Đóng",
     "save": "Lưu",
     "cancel": "Hủy",
-    "search" : "Tìm kiếm",
+    "search": "Tìm kiếm",
     "viewBranches": "Xem chi nhánh"
   },
   "search": {
     "placeholder": "Tìm theo tên"
+  },
+  "placeholder": {
+    "name": "Nhập tên cửa hàng",
+    "phone": "Nhập số điện thoại"
+  },
+  "error": {
+    "nameRequired": "Tên cửa hàng không được để trống",
+    "phoneRequired": "Số điện thoại không được để trống",
+    "addressRequired": "Địa chỉ không được để trống"
   }
 }

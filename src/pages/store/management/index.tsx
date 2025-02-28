@@ -69,9 +69,9 @@ const StoreManagement = () => {
             title: t("status"),
             dataIndex: "status",
             key: "status",
-            render: (status: "ACTIVE" | "INACTIVE") => (
-                <Tag color={status === "ACTIVE" ? "green" : "red"}>
-                    {status === "ACTIVE" ? t("active") : t("inactive")}
+            render: (status: "ACTIVATED" | "INACTIVATED") => (
+                <Tag color={status === "ACTIVATED" ? "green" : "red"}>
+                    {status === "ACTIVATED" ? t("active") : t("inactive")}
                 </Tag>
             ),
         },

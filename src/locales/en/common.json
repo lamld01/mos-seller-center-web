@@ -2,12 +2,21 @@
   "breadcrumb": {
     "home": "Home",
     "storeManagement": "Store Management",
-    "branchManagement": "Branch Management"
+    "branchManagement": "Branch Management",
+    "productManagement": "Product Management",
+    "productGroupManagement": "Product Group Management"
   },
   "button": {
     "search": "Search",
     "add": "Add New",
     "edit": "Edit",
-    "back": "Back"
+    "back": "Back",
+    "cancel": "Cancel"
+  },
+  "error" : {
+    "loadCategories" : "Load Categories error",
+    "loadProducts" : "Load Products error",
+    "loadBranches" : "Load Branches error",
+    "loadProductGroups" : "Load Product Groups error"
   }
 }

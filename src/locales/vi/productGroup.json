@@ -1,0 +1,29 @@
+{
+  "management": "Quản lý nhóm sản phẩm",
+  "name": "Tên sản phẩm",
+  "categoryId": "Mã danh mục",
+  "price": "Giá",
+  "status": "Trạng thái",
+  "actions": "Hành động",
+  "active": "Hoạt động",
+  "inactive": "Không hoạt động",
+  "description": "Mô tả",
+  "createdAt": "Ngày tạo",
+  "updatedAt": "Ngày cập nhật",
+  "category": "Danh mục",
+  "button": {
+    "edit": "Chỉnh sửa sản phẩm",
+    "add": "Thêm sản phẩm",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "viewListItem": "Xem danh sách sản phẩm"
+  },
+  "placeholder": {
+    "name": "Nhập tên sản phẩm",
+    "categoryId": "Nhập mã danh mục",
+    "price": "Nhập giá",
+    "description": "Nhập mô tả",
+    "category": "Nhập danh mục",
+    "status": "Chọn trạng thái"
+  }
+}

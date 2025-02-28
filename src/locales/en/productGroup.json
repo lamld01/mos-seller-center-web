@@ -1,0 +1,29 @@
+{
+  "management": "Product Group Management",
+  "name": "Product Name",
+  "categoryId": "Category ID",
+  "price": "Price",
+  "status": "Status",
+  "actions": "Actions",
+  "active": "Active",
+  "inactive": "Inactive",
+  "description": "Description",
+  "createdAt": "Created At",
+  "updatedAt": "Updated At",
+  "category": "Category",
+  "button": {
+    "edit": "Edit Product",
+    "add": "Add Product",
+    "save": "Save",
+    "cancel": "Cancel",
+    "viewListItem": "View Product Items"
+  },
+  "placeholder": {
+    "name": "Enter product name",
+    "categoryId": "Enter category ID",
+    "price": "Enter price",
+    "description": "Enter description",
+    "category": "Enter category",
+    "status": "Select status"
+  }
+}

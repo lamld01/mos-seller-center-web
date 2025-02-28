@@ -1,0 +1,42 @@
+{
+  "title": {
+    "management": "Quản lý sản phẩm",
+    "editProduct": "Chỉnh sửa sản phẩm",
+    "addProduct": "Thêm sản phẩm"
+  },
+  "name": "Tên sản phẩm",
+  "description": "Mô tả",
+  "price": "Giá",
+  "status": "Trạng thái",
+  "active": "Hoạt động",
+  "inactive": "Không hoạt động",
+  "actions": "Hành động",
+  "productGroup": "Nhóm sản phẩm",
+  "message": {
+    "createSuccess": "Tạo sản phẩm thành công!",
+    "updateSuccess": "Cập nhật sản phẩm thành công!",
+    "deleteConfirm": "Bạn có chắc chắn muốn xóa sản phẩm này?",
+    "deleteSuccess": "Xóa sản phẩm thành công!",
+    "error": "Đã xảy ra lỗi, vui lòng thử lại."
+  },
+  "placeholder": {
+    "searchName": "Nhập tên sản phẩm để tìm kiếm",
+    "enterName": "Nhập tên sản phẩm",
+    "enterDescription": "Nhập mô tả",
+    "enterPrice": "Nhập giá",
+    "status": "Chọn trạng thái"
+  },
+  "error": {
+    "nameRequired": "Tên sản phẩm là bắt buộc",
+    "priceRequired": "Giá là bắt buộc",
+    "loadFailed": "Tải sản phẩm thất bại"
+  },
+  "button": {
+    "edit": "Chỉnh sửa",
+    "addNew": "Thêm sản phẩm mới",
+    "delete": "Xóa",
+    "search": "Tìm kiếm",
+    "save": "Lưu",
+    "cancel": "Hủy"
+  }
+}

@@ -1,26 +1,36 @@
 {
   "management": "Store Management",
-  "edit": "Edit",
-  "create": "Create",
   "name": "Store Name",
+  "edit": "Update",
+  "create": "Create",
   "phone": "Phone Number",
   "status": "Status",
   "active": "Active",
   "inactive": "Inactive",
-  "createdAt": "Created At",
-  "updatedAt": "Updated At",
-  "actions" : "Actions",
-  "button" : {
-    "add": "Add Store",
-    "edit": "Edit Store",
-    "delete": "Delete Store",
+  "createdAt": "Created Date",
+  "updatedAt": "Updated Date",
+  "actions": "Actions",
+  "address": "Address",
+  "button": {
+    "add": "Create",
+    "edit": "Edit",
+    "delete": "Delete",
     "close": "Close",
     "save": "Save",
     "cancel": "Cancel",
-    "search" : "Search",
-    "viewBranches": "View Branch"
+    "search": "Search",
+    "viewBranches": "View Branches"
   },
   "search": {
     "placeholder": "Search by name"
+  },
+  "placeholder": {
+    "name": "Enter store name",
+    "phone": "Enter phone number"
+  },
+  "error": {
+    "nameRequired": "Store name is required",
+    "phoneRequired": "Phone number is required",
+    "addressRequired": "Address is required"
   }
 }

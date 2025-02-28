@@ -25,6 +25,7 @@ import {
     GlobalOutlined,
     AppstoreOutlined,
     ShopOutlined,
+    ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
@@ -80,6 +81,12 @@ const Navbar: React.FC<{ collapsed: boolean; setCollapsed: (val: boolean) => voi
             icon: <ShopOutlined />,
             label: "Quản lý cửa hàng",
             onClick: () => router.push(ROUTES.STORE_MANAGEMENT),
+        },
+        {
+            key: ROUTES.PRODUCT_GROUP_MANAGEMENT,
+            icon: <ShoppingCartOutlined/>,
+            label: "Quản lý cửa hàng",
+            onClick: () => router.push(ROUTES.PRODUCT_GROUP_MANAGEMENT),
         },
     ];
 

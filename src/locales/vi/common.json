@@ -2,12 +2,23 @@
   "breadcrumb": {
     "home": "Trang chủ",
     "storeManagement": "Quản lý cửa hàng",
-    "branchManagement": "Quản lý chi nhánh"
+    "branchManagement": "Quản lý chi nhánh",
+    "productManagement": "Quản lý sản phẩm",
+    "productGroupManagement": "Quản lý nhóm sản phẩm"
+
   },
   "button": {
     "search": "Tìm kiếm",
     "add": "Thêm mới",
     "edit": "Chỉnh sửa",
-    "back": "Trở lại"
+    "back": "Trở lại",
+    "save": "Lưu",
+    "cancel": "Hủy"
+  },
+  "error" : {
+    "loadCategories" : "Lấy danh sách loại sản phẩm thất bại!",
+    "loadProducts" : "Lấy danh sách sản phẩm thất bại!",
+    "loadBranches" : "Lấy danh sách chi nhánh thất bại!",
+    "loadProductGroups" : "Lấy danh sách nhóm sản phẩm thất bại!"
   }
 }
